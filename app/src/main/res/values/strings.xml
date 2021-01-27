@@ -1,0 +1,50 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <string-array name="status_codes">
+        <item>0=未知异常.</item>
+        <item>903=解析异常.</item>
+        <item>904=网络异常.</item>
+        <item>905=网络连接超时.</item>
+        <item>906=输入输出异常.</item>
+        <item>907=网络不可用.</item>
+        <item>908=非法状态.</item>
+        <item>909=参数不正确.</item>
+        <item>100=输入错误.</item>
+        <item>101=用户已经注册.</item>
+        <item>102=请使用手机号注册，用来发送验证短信.</item>
+        <item>103=手机号码不是正确的格式.</item>
+        <item>104=验证码不正确或已过期.</item>
+        <item>105=用户未注册或密码不正确.</item>
+        <item>106=用户已锁定帐户.</item>
+        <item>107=两次输入的新密码不一致.</item>
+        <item>108=您在对方的黑名单里，无法发送好友请求.</item>
+        <item>109=已发送好友请求.</item>
+        <item>110=对方在您的黑名单里，请先将该用户移出黑名单.</item>
+        <item>111=用户已经在您的黑名单里.</item>
+        <item>112=服务器出错了，请稍候再试一试.</item>
+        <item>113=没有足够的标签名额.</item>
+        <item>114=不能通过年龄建群，请先设置您的年龄.</item>
+        <item>115=不能通过性别建群，请先设置您的性别.</item>
+        <item>116=上传图片太大或格式不对.</item>
+        <item>117=上传失败.</item>
+        <item>118=没找到用户.</item>
+        <item>119=已经有相同的标签.</item>
+        <item>120=只有群成员能点赞群标签.</item>
+        <item>121=只有朋友或群友才能点赞标签.</item>
+        <item>122=这个声波号已经有人用了.</item>
+        <item>123=群主不能把自己移出群聊.</item>
+        <item>124=群不存在或已被解散.</item>
+        <item>125=密码要求8-20个字符，并且至少有一个数字和一个英文字母.</item>
+        <item>126=您不符合群要求，无法加入这个群.</item>
+        <item>127=您有加入的群使用这个标签，请先退出这些群再删除这个标签.</item>
+        <item>128=没有找到符合要求的单聊用户. 试试修改您的搜索条件.</item>
+        <item>129=服务器出错了.</item>
+        <item>130=发广播太快了，请等等再发.</item>
+        <item>131=您被举报太多，需要等一会才能再次发送广播.</item>
+        <item>132=群已满员.</item>
+        <item>133=该号码还未注册.</item>
+    </string-array>
+</resources>
