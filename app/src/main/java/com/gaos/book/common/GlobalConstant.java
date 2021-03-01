@@ -19,6 +19,9 @@ public class GlobalConstant {
     public static final int RESULT_CODE_CHANGEINFO = 2;
     public static final int SPEAK_STEP = 500;
 
+
+    public static final String FONT_STYLE = "隶书.ttf";
+
     public static final int REQUEST_CODE_LOGIN = 100;
     public static final int RESULT_CODE_LOGIN_SUCCESS = 101;
     public static final int RESULT_CODE_LOGIN_FAILED = 102;
@@ -39,6 +42,8 @@ public class GlobalConstant {
         String BASE_URL = "http://192.168.6.131:8000";
         String SAVEBOOK = BASE_URL + "/saveBook/";
         String GET_BOOK_LIST = BASE_URL + "/getBookList/";
+        String GET_CATALOG_LIST = BASE_URL + "/getCatalogList/";
+        String GET_CHAPTER_INFO = BASE_URL + "/getChapterInfo/";
     }
 
     //静态web页面url

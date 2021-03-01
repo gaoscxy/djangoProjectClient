@@ -1,13 +1,14 @@
 package com.gaos.book.api;
 
-import com.gaos.book.BookInfo;
 import com.gaos.book.base.BaseBean;
+import com.gaos.book.model.BookChapterBean;
+import com.gaos.book.model.BookInfo;
+import com.gaos.book.model.CatalogInfo;
+import com.gaos.book.model.ChapterInfoBean;
 
 import java.util.List;
 
 import io.reactivex.Observable;
-import okhttp3.RequestBody;
-import okhttp3.ResponseBody;
 
 
 /**
@@ -32,6 +33,14 @@ public class ApiFactory {
     }
     public static Observable<BaseBean<List<BookInfo>>> getBookList() {
         return Api.getInstance().service.getBookList().compose(RxSchedulers.observableIO2Main());
+
+    }
+    public static Observable<BaseBean<List<BookChapterBean>>> getCatalogList(int book_id) {
+        return Api.getInstance().service.getCatalogList(book_id).compose(RxSchedulers.observableIO2Main());
+
+    }
+    public static Observable<BaseBean<ChapterInfoBean>> getChapterInfo(String path) {
+        return Api.getInstance().service.getChapterInfo(path).compose(RxSchedulers.observableIO2Main());
 
     }
 

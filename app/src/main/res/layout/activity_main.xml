@@ -5,42 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/white"
+    android:background="@color/theme"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/button"
+    <com.gaos.book.widget.MyTextView
+        android:layout_gravity="center"
+        android:gravity="center"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="add"
-        tools:layout_editor_absoluteX="65dp"
-        tools:layout_editor_absoluteY="187dp" />
+        android:layout_height="60dp"
+        android:textStyle="bold"
+        android:textSize="@dimen/title_text_size"
+        android:text="耽美小说" />
 
-    <EditText
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="输入书名"
-        tools:layout_editor_absoluteX="75dp"
-        tools:layout_editor_absoluteY="36dp" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
-    <EditText
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="输入出版名"
-        tools:layout_editor_absoluteX="75dp"
-        tools:layout_editor_absoluteY="98dp" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="get"
-        tools:layout_editor_absoluteX="63dp"
-        tools:layout_editor_absoluteY="267dp" />
-    <TextView
-        android:id="@+id/content"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
 </LinearLayout>

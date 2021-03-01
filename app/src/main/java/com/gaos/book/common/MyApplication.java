@@ -3,6 +3,7 @@ package com.gaos.book.common;
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -13,6 +14,7 @@ import com.tencent.bugly.crashreport.CrashReport;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.util.NoSuchElementException;
 import java.util.Stack;
 
@@ -49,17 +51,12 @@ public class MyApplication extends Application {
         super.attachBaseContext(base);
     }
 
-    /**
-     * 身边的事儿--列表数据
-     */
-//    private List<AroundSthListInfo.DataBean> mAroundSthListData;
     @Override
     public void onCreate() {
         super.onCreate();
         instance = this;
         mContext = getApplicationContext();
         initBugly();// bugly初始化及相关设置
-
         store = new Stack<>();
         registerActivityLifecycleCallbacks(new SwitchBackgroundCallbacks());
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
@@ -196,4 +193,5 @@ public class MyApplication extends Application {
         }
         return null;
     }
+
 }
