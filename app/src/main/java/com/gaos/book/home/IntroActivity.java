@@ -24,6 +24,8 @@ import butterknife.BindView;
  */
 public class IntroActivity extends BaseActivity {
 
+    public static final String RESULT_IS_COLLECTED = "result_is_collected";
+    private boolean isCollected = false;
     private int book_id;
 
     @BindView(R.id.name)
@@ -38,6 +40,7 @@ public class IntroActivity extends BaseActivity {
     MyTextView introTv;
 //    private CatalogInfo mCatalogInfo;
     private BookInfo bookinfo;
+
     @Override
     protected int getLayoutResId() {
         return R.layout.activity_intro;
@@ -63,6 +66,11 @@ public class IntroActivity extends BaseActivity {
 
 //        mCatalogInfo = BookRepository.getInstance().getCollBook(book_id);
 
+        bookinfo = BookRepository.getInstance().getCollBook(book_id);
+        if(bookinfo != null){
+            isCollected = true;
+            readBtn.setText("继续阅读");
+        }
     }
 
     @Override
@@ -71,8 +79,33 @@ public class IntroActivity extends BaseActivity {
         readBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ReadActivity.startActivity(IntroActivity.this,bookinfo, false);
+                ReadActivity.startActivity(IntroActivity.this,bookinfo, isCollected);
             }
         });
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        //如果进入阅读页面收藏了，页面结束的时候，就需要返回改变收藏按钮
+        if (requestCode == REQUEST_READ) {
+            if (data == null) {
+                return;
+            }
+
+            isCollected = data.getBooleanExtra(RESULT_IS_COLLECTED, false);
+
+            if (isCollected) {
+//                mTvChase.setText(getResources().getString(R.string.nb_book_detail_give_up));
+//                //修改背景
+//                Drawable drawable = getResources().getDrawable(R.drawable.shape_common_gray_corner);
+//                mTvChase.setBackground(drawable);
+//                //设置图片
+//                mTvChase.setCompoundDrawablesWithIntrinsicBounds(ContextCompat.getDrawable(this, R.drawable.ic_book_list_delete), null,
+//                        null, null);
+                readBtn.setText("继续阅读");
+            }
+        }
     }
 }

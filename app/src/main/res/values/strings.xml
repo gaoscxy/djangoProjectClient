@@ -104,18 +104,6 @@
 
     <string name="nb.net.error_tip">似乎没有网络哦</string>
 
-    <!--fragment_title:主页的名字-->
-    <string name="nb.fragment.title.bookshelf">书架</string>
-    <string name="nb.fragment.title.community">社区</string>
-    <string name="nb.fragment.title.find">发现</string>
-
-    <!--fragment-->
-    <string name="nb.fragment.community.comment">综合讨论区</string>
-    <string name="nb.fragment.community.discussion">书评区</string>
-    <string name="nb.fragment.community.help">书荒帮助区</string>
-    <string name="nb.fragment.community.girl">女生区</string>
-    <string name="nb.fragment.community.compose">原创区</string>
-
     <!--fragment 主题书单-->
     <string name="nb.fragment.book_list.hot">本周最热</string>
     <string name="nb.fragment.book_list.newest">最新发布</string>
@@ -223,7 +211,6 @@
     <string name="nb.mode.morning">日间</string>
 
     <!--read-->
-    <string name="nb.read.community">社区</string>
     <string name="nb.read.brief">简介</string>
     <string name="nb.read.setting">设置</string>
     <string name="nb.read.download">缓存</string>'

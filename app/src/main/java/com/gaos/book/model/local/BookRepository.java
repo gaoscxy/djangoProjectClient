@@ -148,9 +148,9 @@ public class BookRepository {
     }
 
     /*****************************get************************************************/
-    public CatalogInfo getCollBook(int bookId){
-        CatalogInfo bean = mCatalogInfoDao.queryBuilder()
-                .where(CatalogInfoDao.Properties.Bookinfo_id.eq(bookId))
+    public BookInfo getCollBook(int bookId){
+        BookInfo bean = mCollBookDao.queryBuilder()
+                .where(BookInfoDao.Properties.Book_id.eq(bookId))
                 .unique();
         return bean;
     }
