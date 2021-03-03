@@ -33,12 +33,9 @@ public class CategoryHolder extends ViewHolderImpl<TxtChapter> {
             drawable = getContext().getResources().getDrawable(R.drawable.selector_category_load,null);
         }
         else {
-            if ((value.getBookId() + "") != null
-                    && BookManager
-                    .isChapterCached(value.getBookId() + "",value.getTitle())){
+            if (BookManager.isChapterCached(value.getBookId(),value.getTitle())){
                 drawable = getContext().getResources().getDrawable(R.drawable.selector_category_load,null);
-            }
-            else {
+            }else {
                 drawable = getContext().getResources().getDrawable(R.drawable.selector_category_unload,null);
             }
         }

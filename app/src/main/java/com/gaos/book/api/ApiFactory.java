@@ -4,7 +4,6 @@ import com.gaos.book.base.BaseBean;
 import com.gaos.book.model.BookChapterBean;
 import com.gaos.book.model.BookInfo;
 import com.gaos.book.model.CatalogInfo;
-import com.gaos.book.model.ChapterInfoBean;
 
 import java.util.List;
 
@@ -35,11 +34,11 @@ public class ApiFactory {
         return Api.getInstance().service.getBookList().compose(RxSchedulers.observableIO2Main());
 
     }
-    public static Observable<BaseBean<List<BookChapterBean>>> getCatalogList(int book_id) {
+    public static Observable<BaseBean<List<CatalogInfo>>> getCatalogList(int book_id) {
         return Api.getInstance().service.getCatalogList(book_id).compose(RxSchedulers.observableIO2Main());
 
     }
-    public static Observable<BaseBean<ChapterInfoBean>> getChapterInfo(String path) {
+    public static Observable<BaseBean<String>> getChapterInfo(String path) {
         return Api.getInstance().service.getChapterInfo(path).compose(RxSchedulers.observableIO2Main());
 
     }

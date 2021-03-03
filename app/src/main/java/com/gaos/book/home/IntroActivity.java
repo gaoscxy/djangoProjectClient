@@ -36,7 +36,8 @@ public class IntroActivity extends BaseActivity {
     MyTextView timeTv;
     @BindView(R.id.intro)
     MyTextView introTv;
-    private CatalogInfo mCatalogInfo;
+//    private CatalogInfo mCatalogInfo;
+    private BookInfo bookinfo;
     @Override
     protected int getLayoutResId() {
         return R.layout.activity_intro;
@@ -45,7 +46,7 @@ public class IntroActivity extends BaseActivity {
     @Override
     protected void initView(Bundle savedInstanceState) {
         Intent intent = getIntent();
-        BookInfo bookinfo = (BookInfo)intent.getSerializableExtra("bookinfo");
+        bookinfo = (BookInfo)intent.getParcelableExtra("bookinfo");
         String name = bookinfo.getBook_name();
         String author = bookinfo.getBook_author();
         String introduce = bookinfo.getBook_introduce();
@@ -60,7 +61,7 @@ public class IntroActivity extends BaseActivity {
     @Override
     protected void initData(Bundle savedInstanceState) {
 
-        mCatalogInfo = BookRepository.getInstance().getCollBook(book_id);
+//        mCatalogInfo = BookRepository.getInstance().getCollBook(book_id);
 
     }
 
@@ -70,8 +71,7 @@ public class IntroActivity extends BaseActivity {
         readBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ReadActivity.startActivity(IntroActivity.this,
-                        mCollBookAdapter.getItem(pos), true);
+                ReadActivity.startActivity(IntroActivity.this,bookinfo, false);
             }
         });
     }

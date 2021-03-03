@@ -15,7 +15,7 @@ import java.util.Map;
 public class BookManager{
     private static final String TAG = "BookManager";
     private String chapterName;
-    private String bookId;
+    private int bookId;
     private long chapterLen;
     private long position;
     private Map<String, Cache> cacheMap = new HashMap<>();
@@ -32,11 +32,11 @@ public class BookManager{
         return sInstance;
     }
 
-    public boolean openChapter(String bookId,String chapterName){
+    public boolean openChapter(int bookId,String chapterName){
         return openChapter(bookId,chapterName,0);
     }
 
-    public boolean openChapter(String bookId,String chapterName,long position){
+    public boolean openChapter(int bookId,String chapterName,long position){
         //如果文件不存在，则打开失败
         File file = new File(Constant.BOOK_CACHE_PATH + bookId
                 + File.separator + chapterName + FileUtils.SUFFIX_NB);
@@ -175,7 +175,7 @@ public class BookManager{
      * @param fileName
      * @return
      */
-    public static File getBookFile(String folderName, String fileName){
+    public static File getBookFile(int folderName, String fileName){
         return FileUtils.getFile(Constant.BOOK_CACHE_PATH + folderName
                 + File.separator + fileName + FileUtils.SUFFIX_NB);
     }
@@ -192,7 +192,7 @@ public class BookManager{
      * @param fileName: chapterName
      * @return
      */
-    public static boolean isChapterCached(String folderName, String fileName){
+    public static boolean isChapterCached(int folderName, String fileName){
         File file = new File(Constant.BOOK_CACHE_PATH + folderName
                 + File.separator + fileName + FileUtils.SUFFIX_NB);
         return file.exists();

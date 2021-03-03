@@ -6,7 +6,6 @@ import com.gaos.book.common.GlobalConstant;
 import com.gaos.book.model.BookChapterBean;
 import com.gaos.book.model.BookInfo;
 import com.gaos.book.model.CatalogInfo;
-import com.gaos.book.model.ChapterInfoBean;
 
 import java.util.List;
 
@@ -15,6 +14,7 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 /**
  * Created by gaos on 2017/8/8.
@@ -29,10 +29,10 @@ public interface ApiService {
     Observable<BaseBean<List<BookInfo>>> getBookList();
 
     @GET(GlobalConstant.URLContact.GET_CATALOG_LIST)
-    Observable<BaseBean<List<BookChapterBean>>> getCatalogList(@Field("book_id") int book_id);
+    Observable<BaseBean<List<CatalogInfo>>> getCatalogList(@Query("book_id") int book_id);
 
     @GET(GlobalConstant.URLContact.GET_CHAPTER_INFO)
-    Observable<BaseBean<ChapterInfoBean>> getChapterInfo(@Field("path") String path);
+    Observable<BaseBean<String>> getChapterInfo(@Query("path") String path);
     //登录
 //    @FormUrlEncoded
 //    @POST(GlobalConstant.URLContact.USER_LOGIN_URL)

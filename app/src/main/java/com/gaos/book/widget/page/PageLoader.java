@@ -13,7 +13,9 @@ import android.text.TextPaint;
 
 import androidx.core.content.ContextCompat;
 
+import com.gaos.book.model.BookInfo;
 import com.gaos.book.model.BookRecordBean;
+import com.gaos.book.model.CatalogInfo;
 import com.gaos.book.model.CollBookBean;
 import com.gaos.book.model.local.BookRepository;
 import com.gaos.book.model.local.ReadSettingManager;
@@ -60,7 +62,7 @@ public abstract class PageLoader {
     // 当前章节列表
     protected List<TxtChapter> mChapterList;
     // 书本对象
-    protected CollBookBean mCollBook;
+    protected BookInfo mCollBook;
     // 监听器
     protected OnPageChangeListener mPageChangeListener;
 
@@ -144,7 +146,7 @@ public abstract class PageLoader {
     private int mLastChapterPos = 0;
 
     /*****************************init params*******************************/
-    public PageLoader(PageView pageView, CollBookBean collBook) {
+    public PageLoader(PageView pageView, BookInfo collBook) {
         mPageView = pageView;
         mContext = pageView.getContext();
         mCollBook = collBook;
@@ -505,9 +507,10 @@ public abstract class PageLoader {
      *
      * @return
      */
-    public CollBookBean getCollBook() {
+    public BookInfo getCollBook() {
         return mCollBook;
     }
+
 
     /**
      * 获取章节目录。
@@ -572,15 +575,15 @@ public abstract class PageLoader {
      * 初始化书籍
      */
     private void prepareBook() {
-//        mBookRecord = BookRepository.getInstance()
-//                .getBookRecord(mCollBook.get_id());
-//
-//        if (mBookRecord == null) {
-//            mBookRecord = new BookRecordBean();
-//        }
-//
-//        mCurChapterPos = mBookRecord.getChapter();
-//        mLastChapterPos = mCurChapterPos;
+        mBookRecord = BookRepository.getInstance()
+                .getBookRecord(mCollBook.getBook_id());
+
+        if (mBookRecord == null) {
+            mBookRecord = new BookRecordBean();
+        }
+
+        mCurChapterPos = mBookRecord.getChapter();
+        mLastChapterPos = mCurChapterPos;
     }
 
     /**

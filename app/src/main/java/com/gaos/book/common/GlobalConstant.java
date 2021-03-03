@@ -43,7 +43,7 @@ public class GlobalConstant {
         String SAVEBOOK = BASE_URL + "/saveBook/";
         String GET_BOOK_LIST = BASE_URL + "/getBookList/";
         String GET_CATALOG_LIST = BASE_URL + "/getCatalogList/";
-        String GET_CHAPTER_INFO = BASE_URL + "/getChapterInfo/";
+        String GET_CHAPTER_INFO = BASE_URL + "/getBookDetails/";
     }
 
     //静态web页面url

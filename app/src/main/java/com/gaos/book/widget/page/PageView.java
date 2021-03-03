@@ -9,6 +9,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
 
+import com.gaos.book.model.BookInfo;
+import com.gaos.book.model.CatalogInfo;
 import com.gaos.book.model.CollBookBean;
 import com.gaos.book.widget.animation.CoverPageAnim;
 import com.gaos.book.widget.animation.HorizonPageAnim;
@@ -343,7 +345,7 @@ public class PageView extends View {
      * @param collBook
      * @return
      */
-    public PageLoader getPageLoader(CollBookBean collBook) {
+    public PageLoader getPageLoader(BookInfo collBook) {
         // 判是否已经存在
         if (mPageLoader != null) {
             return mPageLoader;

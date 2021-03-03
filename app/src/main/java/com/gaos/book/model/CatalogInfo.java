@@ -1,14 +1,51 @@
 package com.gaos.book.model;
 
-import java.io.Serializable;
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import org.greenrobot.greendao.annotation.Entity;
+import org.greenrobot.greendao.annotation.Id;
+import org.greenrobot.greendao.annotation.Generated;
+import org.greenrobot.greendao.annotation.Index;
+
 
 @Entity
-public class CatalogInfo implements Serializable {
+public class CatalogInfo  implements Parcelable {
+    @Id
     private int chapter_id;
     private String chapter_name;
     private String chapter_path;
-    @Id
-    private String bookinfo_id;
+    @Index
+    private int bookinfo_id;
+    //章节内容在文章中的起始位置(本地)
+    long start;
+    //章节内容在文章中的终止位置(本地)
+    long end;
+    private boolean unreadble;
+
+    public boolean isUnreadble() {
+        return unreadble;
+    }
+
+    public void setUnreadble(boolean unreadble) {
+        this.unreadble = unreadble;
+    }
+
+    public long getStart() {
+        return start;
+    }
+
+    public void setStart(long start) {
+        this.start = start;
+    }
+
+    public long getEnd() {
+        return end;
+    }
+
+    public void setEnd(long end) {
+        this.end = end;
+    }
 
     public int getChapter_id() {
         return chapter_id;
@@ -34,11 +71,63 @@ public class CatalogInfo implements Serializable {
         this.chapter_path = chapter_path;
     }
 
-    public String getBookinfo_id() {
+    public int getBookinfo_id() {
         return bookinfo_id;
     }
 
-    public void setBookinfo_id(String bookinfo_id) {
+    public void setBookinfo_id(int bookinfo_id) {
         this.bookinfo_id = bookinfo_id;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(this.chapter_id);
+        dest.writeString(this.chapter_name);
+        dest.writeString(this.chapter_path);
+        dest.writeInt(this.bookinfo_id);
+    }
+
+    public boolean getUnreadble() {
+        return this.unreadble;
+    }
+
+    protected CatalogInfo(Parcel in) {
+        this.chapter_id = in.readInt();
+        this.chapter_name = in.readString();
+        this.chapter_path = in.readString();
+        this.bookinfo_id = in.readInt();
+    }
+
+    @Generated(hash = 1537980047)
+    public CatalogInfo(int chapter_id, String chapter_name, String chapter_path,
+            int bookinfo_id, long start, long end, boolean unreadble) {
+        this.chapter_id = chapter_id;
+        this.chapter_name = chapter_name;
+        this.chapter_path = chapter_path;
+        this.bookinfo_id = bookinfo_id;
+        this.start = start;
+        this.end = end;
+        this.unreadble = unreadble;
+    }
+
+    @Generated(hash = 1044076522)
+    public CatalogInfo() {
+    }
+
+    public static final Creator<CatalogInfo> CREATOR = new Creator<CatalogInfo>() {
+        @Override
+        public CatalogInfo createFromParcel(Parcel source) {
+            return new CatalogInfo(source);
+        }
+
+        @Override
+        public CatalogInfo[] newArray(int size) {
+            return new CatalogInfo[size];
+        }
+    };
 }

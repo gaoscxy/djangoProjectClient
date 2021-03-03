@@ -38,6 +38,8 @@ import com.gaos.book.adapter.CategoryAdapter;
 import com.gaos.book.base.BaseMVPActivity;
 import com.gaos.book.dialog.ReadSettingDialog;
 import com.gaos.book.model.BookChapterBean;
+import com.gaos.book.model.BookInfo;
+import com.gaos.book.model.CatalogInfo;
 import com.gaos.book.model.CollBookBean;
 import com.gaos.book.model.local.BookRepository;
 import com.gaos.book.model.local.ReadSettingManager;
@@ -130,7 +132,8 @@ public class ReadActivity extends BaseMVPActivity<ReadContract.Presenter>
     private Animation mBottomInAnim;
     private Animation mBottomOutAnim;
     private CategoryAdapter mCategoryAdapter;
-    private CollBookBean mCollBook;
+    private BookInfo mCollBook;
+//    private CatalogInfo mCatalogInfo;
     //控制屏幕常亮
     private PowerManager.WakeLock mWakeLock;
     private Handler mHandler = new Handler() {
@@ -201,10 +204,10 @@ public class ReadActivity extends BaseMVPActivity<ReadContract.Presenter>
 
     private int mBookId;
 
-    public static void startActivity(Context context, CollBookBean collBook, boolean isCollected) {
+    public static void startActivity(Context context, BookInfo bookInfo, boolean isCollected) {
         context.startActivity(new Intent(context, ReadActivity.class)
                 .putExtra(EXTRA_IS_COLLECTED, isCollected)
-                .putExtra(EXTRA_COLL_BOOK, collBook));
+                .putExtra(EXTRA_COLL_BOOK, bookInfo));
     }
 
     @Override
@@ -214,6 +217,12 @@ public class ReadActivity extends BaseMVPActivity<ReadContract.Presenter>
 
     @Override
     protected void initView(Bundle savedInstanceState) {
+
+        mCollBook = getIntent().getParcelableExtra(EXTRA_COLL_BOOK);
+        isCollected = getIntent().getBooleanExtra(EXTRA_IS_COLLECTED, false);
+        isNightMode = ReadSettingManager.getInstance().isNightMode();
+        isFullScreen = ReadSettingManager.getInstance().isFullScreen();
+        mBookId = mCollBook.getBook_id();
 
             // 如果 API < 18 取消硬件加速
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR2
@@ -271,19 +280,13 @@ public class ReadActivity extends BaseMVPActivity<ReadContract.Presenter>
 
     @Override
     protected void initData(Bundle savedInstanceState) {
-        mCollBook = getIntent().getParcelableExtra(EXTRA_COLL_BOOK);
-        isCollected = getIntent().getBooleanExtra(EXTRA_IS_COLLECTED, false);
-        isNightMode = ReadSettingManager.getInstance().isNightMode();
-        isFullScreen = ReadSettingManager.getInstance().isFullScreen();
-
-//        mBookId = mCollBook.get_id();
     }
 
     @Override
     protected void setUpToolbar(Toolbar toolbar) {
         super.setUpToolbar(toolbar);
         //设置标题
-        toolbar.setTitle(mCollBook.getTitle());
+        toolbar.setTitle(mCollBook.getBook_name());
         //半透明化StatusBar
         SystemBarUtils.transparentStatusBar(this);
     }
@@ -623,7 +626,7 @@ public class ReadActivity extends BaseMVPActivity<ReadContract.Presenter>
                     .subscribe(
                             (bookChapterBeen, throwable) -> {
                                 // 设置 CollBook
-                                mPageLoader.getCollBook().setBookChapters(bookChapterBeen);
+                                mPageLoader.getCollBook().setBookChapterList(bookChapterBeen);
                                 // 刷新章节列表
                                 mPageLoader.refreshChapterList();
                                 // 如果是网络小说并被标记更新的，则从网络下载目录
@@ -652,8 +655,8 @@ public class ReadActivity extends BaseMVPActivity<ReadContract.Presenter>
     }
 
     @Override
-    public void showCategory(List<BookChapterBean> bookChapters) {
-        mPageLoader.getCollBook().setBookChapters(bookChapters);
+    public void showCategory(List<CatalogInfo> bookChapters) {
+        mPageLoader.getCollBook().setBookChapterList(bookChapters);
         mPageLoader.refreshChapterList();
 
         // 如果是目录更新的情况，那么就需要存储更新数据

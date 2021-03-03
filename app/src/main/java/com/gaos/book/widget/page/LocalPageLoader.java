@@ -1,6 +1,8 @@
 package com.gaos.book.widget.page;
 
 import com.gaos.book.model.BookChapterBean;
+import com.gaos.book.model.BookInfo;
+import com.gaos.book.model.CatalogInfo;
 import com.gaos.book.model.CollBookBean;
 import com.gaos.book.model.local.BookRepository;
 import com.gaos.book.utils.Charset;
@@ -64,14 +66,14 @@ public class LocalPageLoader extends PageLoader {
 
     private Disposable mChapterDisp = null;
 
-    public LocalPageLoader(PageView pageView, CollBookBean collBook) {
+    public LocalPageLoader(PageView pageView, BookInfo collBook) {
         super(pageView, collBook);
         mStatus = STATUS_PARING;
     }
 
-    private List<TxtChapter> convertTxtChapter(List<BookChapterBean> bookChapters) {
+    private List<TxtChapter> convertTxtChapter(List<CatalogInfo> bookChapters) {
         List<TxtChapter> txtChapters = new ArrayList<>(bookChapters.size());
-        for (BookChapterBean bean : bookChapters) {
+        for (CatalogInfo bean : bookChapters) {
             TxtChapter chapter = new TxtChapter();
             chapter.title = bean.getChapter_name();
             chapter.start = bean.getStart();
@@ -393,19 +395,18 @@ public class LocalPageLoader extends PageLoader {
                         }
 
                         // 存储章节到数据库
-                        List<BookChapterBean> bookChapterBeanList = new ArrayList<>();
+                        List<CatalogInfo> bookChapterBeanList = new ArrayList<>();
                         for (int i = 0; i < mChapterList.size(); ++i) {
                             TxtChapter chapter = mChapterList.get(i);
-                            BookChapterBean bean = new BookChapterBean();
-                            bean.setId(MD5Utils.strToMd5By16(mBookFile.getAbsolutePath()
-                                    + File.separator + chapter.title)); // 将路径+i 作为唯一值
+                            CatalogInfo bean = new CatalogInfo();
+                            bean.setBookinfo_id(chapter.bookId); // 将路径+i 作为唯一值
                             bean.setChapter_name(chapter.getTitle());
                             bean.setStart(chapter.getStart());
                             bean.setUnreadble(false);
                             bean.setEnd(chapter.getEnd());
                             bookChapterBeanList.add(bean);
                         }
-                        mCollBook.setBookChapters(bookChapterBeanList);
+                        mCollBook.setBookChapterList(bookChapterBeanList);
                         mCollBook.setUpdated(lastModified);
 
                         BookRepository.getInstance().saveBookChaptersWithAsync(bookChapterBeanList);

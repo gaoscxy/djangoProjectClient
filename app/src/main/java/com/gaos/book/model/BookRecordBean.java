@@ -11,14 +11,14 @@ import org.greenrobot.greendao.annotation.Generated;
 public class BookRecordBean{
     //所属的书的id
     @Id
-    private String bookId;
+    private int bookId;
     //阅读到了第几章
     private int chapter;
     //当前的页码
     private int pagePos;
 
-    @Generated(hash = 340380968)
-    public BookRecordBean(String bookId, int chapter, int pagePos) {
+    @Generated(hash = 831597990)
+    public BookRecordBean(int bookId, int chapter, int pagePos) {
         this.bookId = bookId;
         this.chapter = chapter;
         this.pagePos = pagePos;
@@ -26,14 +26,6 @@ public class BookRecordBean{
 
     @Generated(hash = 398068002)
     public BookRecordBean() {
-    }
-
-    public String getBookId() {
-        return bookId;
-    }
-
-    public void setBookId(String bookId) {
-        this.bookId = bookId;
     }
 
     public int getChapter() {
@@ -50,5 +42,13 @@ public class BookRecordBean{
 
     public void setPagePos(int pagePos) {
         this.pagePos = pagePos;
+    }
+
+    public int getBookId() {
+        return this.bookId;
+    }
+
+    public void setBookId(int bookId) {
+        this.bookId = bookId;
     }
 }
