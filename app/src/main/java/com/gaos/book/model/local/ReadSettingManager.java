@@ -3,8 +3,8 @@ package com.gaos.book.model.local;
 
 import com.gaos.book.utils.ScreenUtils;
 import com.gaos.book.utils.SharedPreUtils;
-import com.gaos.book.widget.page.PageMode;
-import com.gaos.book.widget.page.PageStyle;
+import com.gaos.book.view.widget.page.PageMode;
+import com.gaos.book.view.widget.page.PageStyle;
 
 /**
  * Created by newbiechen on 17-5-17.

@@ -2,7 +2,6 @@ package com.gaos.book.dialog;
 
 import android.app.Activity;
 import android.app.Dialog;
-import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -22,14 +21,13 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.gaos.book.R;
-import com.gaos.book.adapter.PageStyleAdapter;
+import com.gaos.book.view.adapter.PageStyleAdapter;
 import com.gaos.book.model.local.ReadSettingManager;
-import com.gaos.book.read.ReadActivity;
 import com.gaos.book.utils.BrightnessUtils;
 import com.gaos.book.utils.ScreenUtils;
-import com.gaos.book.widget.page.PageLoader;
-import com.gaos.book.widget.page.PageMode;
-import com.gaos.book.widget.page.PageStyle;
+import com.gaos.book.view.widget.page.PageLoader;
+import com.gaos.book.view.widget.page.PageMode;
+import com.gaos.book.view.widget.page.PageStyle;
 
 import java.util.Arrays;
 

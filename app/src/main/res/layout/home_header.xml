@@ -8,9 +8,9 @@
     android:layout_gravity="center"
     android:gravity="center"
     android:paddingLeft="30dp"
-    tools:context=".MainActivity">
+    tools:context=".view.activity.MainActivity">
 
-    <com.gaos.book.widget.MyTextView
+    <com.gaos.book.view.widget.MyTextView
         android:id="@+id/book_name_tv"
         android:layout_weight="1"
         android:layout_gravity="center"
@@ -21,7 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <com.gaos.book.widget.MyTextView
+    <com.gaos.book.view.widget.MyTextView
         android:id="@+id/book_author_tv"
         android:textSize="16sp"
         android:text="作者"

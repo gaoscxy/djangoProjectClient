@@ -10,7 +10,7 @@ import com.gaos.book.model.CatalogInfo;
 import com.gaos.book.model.local.BookRepository;
 import com.gaos.book.presenter.contract.ReadContract;
 import com.gaos.book.utils.LogUtils;
-import com.gaos.book.widget.page.TxtChapter;
+import com.gaos.book.view.widget.page.TxtChapter;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;

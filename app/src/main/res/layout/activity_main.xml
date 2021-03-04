@@ -6,9 +6,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/theme"
-    tools:context=".MainActivity">
+    tools:context=".view.activity.MainActivity">
 
-    <com.gaos.book.widget.MyTextView
+    <com.gaos.book.view.widget.MyTextView
         android:layout_gravity="center"
         android:gravity="center"
         android:layout_width="wrap_content"

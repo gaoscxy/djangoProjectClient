@@ -9,7 +9,7 @@ import com.gaos.book.R;
 import com.gaos.book.base.adapter.ViewHolderImpl;
 import com.gaos.book.common.GlobalConstant;
 import com.gaos.book.utils.BookManager;
-import com.gaos.book.widget.page.TxtChapter;
+import com.gaos.book.view.widget.page.TxtChapter;
 
 import java.util.Objects;
 

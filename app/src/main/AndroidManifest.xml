@@ -14,14 +14,14 @@
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".home.IntroActivity"
+        <activity android:name=".view.activity.IntroActivity"
             android:launchMode="singleTask"></activity>
-        <activity android:name=".read.ReadActivity"></activity>
+        <activity android:name=".view.activity.ReadActivity"></activity>
         <activity android:name=".catalog.CatalogActivity" />
         <activity android:name=".base.BaseActivity" />
-        <activity android:name=".FullscreenActivity" />
+        <activity android:name=".view.activity.FullscreenActivity" />
         <activity
-            android:name=".MainActivity"
+            android:name=".view.activity.MainActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name"
             android:theme="@style/Theme.MyApplication.Fullscreen">
