@@ -1,7 +1,6 @@
 package com.gaos.book.presenter.contract;
 
 import com.gaos.book.base.BaseContract;
-import com.gaos.book.model.BookChapterBean;
 import com.gaos.book.model.CatalogInfo;
 import com.gaos.book.widget.page.TxtChapter;
 

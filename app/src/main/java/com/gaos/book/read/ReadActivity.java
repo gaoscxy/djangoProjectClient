@@ -1,7 +1,6 @@
 package com.gaos.book.read;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -38,10 +37,8 @@ import com.gaos.book.adapter.CategoryAdapter;
 import com.gaos.book.base.BaseMVPActivity;
 import com.gaos.book.dialog.ReadSettingDialog;
 import com.gaos.book.home.IntroActivity;
-import com.gaos.book.model.BookChapterBean;
 import com.gaos.book.model.BookInfo;
 import com.gaos.book.model.CatalogInfo;
-import com.gaos.book.model.CollBookBean;
 import com.gaos.book.model.local.BookRepository;
 import com.gaos.book.model.local.ReadSettingManager;
 import com.gaos.book.presenter.ReadPresenter;

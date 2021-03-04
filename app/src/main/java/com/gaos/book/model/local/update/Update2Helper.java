@@ -5,8 +5,8 @@ import android.text.TextUtils;
 import android.util.Log;
 
 
-import com.gaos.book.model.gen.BookChapterBeanDao;
-import com.gaos.book.model.gen.CollBookBeanDao;
+import com.gaos.book.model.gen.BookInfoDao;
+import com.gaos.book.model.gen.CatalogInfoDao;
 import com.gaos.book.utils.MD5Utils;
 
 import org.greenrobot.greendao.AbstractDao;
@@ -47,7 +47,7 @@ public class Update2Helper {
     }
 
     private void updateBookChapter(Database db) {
-        Class<? extends AbstractDao<?, ?>> bookChapterClass = BookChapterBeanDao.class;
+        Class<? extends AbstractDao<?, ?>> bookChapterClass = CatalogInfoDao.class;
 
         generateTempTables(db, bookChapterClass);
         deleteOriginalTables(db, bookChapterClass);
@@ -56,7 +56,7 @@ public class Update2Helper {
     }
 
     private void updateCollBook(Database db) {
-        Class<? extends AbstractDao<?, ?>> collBookClass = CollBookBeanDao.class;
+        Class<? extends AbstractDao<?, ?>> collBookClass = BookInfoDao.class;
 
         // 遍历查找本地文件，然后修改本地文件的数据
         DaoConfig daoConfig = new DaoConfig(db, collBookClass);

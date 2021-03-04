@@ -1,16 +1,13 @@
 package com.gaos.book.widget.page;
 
-import com.gaos.book.model.BookChapterBean;
 import com.gaos.book.model.BookInfo;
 import com.gaos.book.model.CatalogInfo;
-import com.gaos.book.model.CollBookBean;
 import com.gaos.book.model.local.BookRepository;
 import com.gaos.book.utils.Charset;
 import com.gaos.book.utils.Constant;
 import com.gaos.book.utils.FileUtils;
 import com.gaos.book.utils.IOUtils;
 import com.gaos.book.utils.LogUtils;
-import com.gaos.book.utils.MD5Utils;
 import com.gaos.book.utils.RxUtils;
 import com.gaos.book.utils.StringUtils;
 
@@ -21,7 +18,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.RandomAccessFile;
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;

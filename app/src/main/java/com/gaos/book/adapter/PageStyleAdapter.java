@@ -11,16 +11,11 @@ import com.gaos.book.base.adapter.IViewHolder;
 import com.gaos.book.base.adapter.view.PageStyleHolder;
 import com.gaos.book.widget.page.PageStyle;
 
-//import com.example.newbiechen.ireader.ui.adapter.view.PageStyleHolder;
-//import com.example.newbiechen.ireader.ui.base.adapter.BaseListAdapter;
-//import com.example.newbiechen.ireader.ui.base.adapter.BaseViewHolder;
-//import com.example.newbiechen.ireader.ui.base.adapter.IViewHolder;
-//import com.example.newbiechen.ireader.widget.page.PageStyle;
-
 /**
- * Created by newbiechen on 17-5-19.
- */
-
+* 
+* @author gaos
+* created at 2021/3/4 11:15
+*/
 public class PageStyleAdapter extends BaseListAdapter<Drawable> {
     private int currentChecked;
 

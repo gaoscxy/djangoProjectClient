@@ -10,8 +10,6 @@ import android.view.View;
 import android.view.ViewConfiguration;
 
 import com.gaos.book.model.BookInfo;
-import com.gaos.book.model.CatalogInfo;
-import com.gaos.book.model.CollBookBean;
 import com.gaos.book.widget.animation.CoverPageAnim;
 import com.gaos.book.widget.animation.HorizonPageAnim;
 import com.gaos.book.widget.animation.NonePageAnim;

@@ -49,14 +49,8 @@ public class IntroActivity extends BaseActivity {
 
     @Override
     protected void initView(Bundle savedInstanceState) {
-        bookinfo = BookRepository.getInstance().getCollBook(book_id);
-        if(bookinfo != null){
-            isCollected = true;
-            readBtn.setText("继续阅读");
-        }else{
-            Intent intent = getIntent();
-            bookinfo = (BookInfo)intent.getParcelableExtra("bookinfo");
-        }
+        Intent intent = getIntent();
+        bookinfo = (BookInfo)intent.getParcelableExtra("bookinfo");
         String name = bookinfo.getBook_name();
         String author = bookinfo.getBook_author();
         String introduce = bookinfo.getBook_introduce();
@@ -70,7 +64,10 @@ public class IntroActivity extends BaseActivity {
 
     @Override
     protected void initData(Bundle savedInstanceState) {
-
+        if(BookRepository.getInstance().getCollBook(book_id) != null){
+            isCollected = true;
+            readBtn.setText("继续阅读");
+        }
     }
 
     @Override
@@ -79,7 +76,10 @@ public class IntroActivity extends BaseActivity {
         readBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ReadActivity.startActivity(IntroActivity.this,bookinfo, isCollected);
+//                ReadActivity.startActivity(IntroActivity.this,bookinfo, isCollected);
+                startActivityForResult(new Intent(IntroActivity.this, ReadActivity.class)
+                        .putExtra(ReadActivity.EXTRA_IS_COLLECTED, isCollected)
+                        .putExtra(ReadActivity.EXTRA_COLL_BOOK, bookinfo), REQUEST_READ);
             }
         });
     }

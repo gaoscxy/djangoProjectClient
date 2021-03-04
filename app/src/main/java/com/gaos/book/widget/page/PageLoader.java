@@ -15,8 +15,6 @@ import androidx.core.content.ContextCompat;
 
 import com.gaos.book.model.BookInfo;
 import com.gaos.book.model.BookRecordBean;
-import com.gaos.book.model.CatalogInfo;
-import com.gaos.book.model.CollBookBean;
 import com.gaos.book.model.local.BookRepository;
 import com.gaos.book.model.local.ReadSettingManager;
 import com.gaos.book.utils.Constant;
@@ -28,7 +26,6 @@ import com.gaos.book.utils.StringUtils;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 

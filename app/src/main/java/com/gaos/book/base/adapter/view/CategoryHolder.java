@@ -1,12 +1,17 @@
 package com.gaos.book.base.adapter.view;
 
+import android.content.res.AssetManager;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.widget.TextView;
 
 import com.gaos.book.R;
 import com.gaos.book.base.adapter.ViewHolderImpl;
+import com.gaos.book.common.GlobalConstant;
 import com.gaos.book.utils.BookManager;
 import com.gaos.book.widget.page.TxtChapter;
+
+import java.util.Objects;
 
 
 /**
@@ -20,6 +25,13 @@ public class CategoryHolder extends ViewHolderImpl<TxtChapter> {
     @Override
     public void initView() {
         mTvChapter = findById(R.id.category_tv_chapter);
+        try {
+            AssetManager mgr = Objects.requireNonNull(getContext()).getAssets();
+            //根据路径得到Typeface
+            Typeface tf = Typeface.createFromAsset(mgr, "fonts/" + GlobalConstant.FONT_STYLE);
+            mTvChapter.setTypeface(tf);
+        } catch (Exception e) {
+        }
     }
 
     @Override

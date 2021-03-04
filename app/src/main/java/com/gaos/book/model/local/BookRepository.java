@@ -181,34 +181,6 @@ public class BookRepository {
                 .unique();
     }
 
-    //TODO:需要进行获取编码并转换的问题
-//        public ChapterInfoBean getChapterInfoBean(String folderName, String fileName){
-//        File file = new File(Constant.BOOK_CACHE_PATH + folderName
-//                + File.separator + fileName + FileUtils.SUFFIX_NB);
-//        if (!file.exists()) return null;
-//        Reader reader = null;
-//        String str = null;
-//        StringBuilder sb = new StringBuilder();
-//        try {
-//            reader = new FileReader(file);
-//            BufferedReader br = new BufferedReader(reader);
-//            while ((str = br.readLine()) != null){
-//                sb.append(str);
-//            }
-//        } catch (FileNotFoundException e) {
-//            e.printStackTrace();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }finally {
-//            IOUtils.close(reader);
-//        }
-//
-//        ChapterInfoBean bean = new ChapterInfoBean();
-//        bean.setTitle(fileName);
-//        bean.setBody(sb.toString());
-//        return bean;
-//    }
-
     /************************************************************/
 
     /************************************************************/

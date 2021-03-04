@@ -1,7 +1,6 @@
 package com.gaos.book.api;
 
 import com.gaos.book.base.BaseBean;
-import com.gaos.book.model.BookChapterBean;
 import com.gaos.book.model.BookInfo;
 import com.gaos.book.model.CatalogInfo;
 

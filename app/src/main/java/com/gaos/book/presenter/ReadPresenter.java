@@ -6,18 +6,11 @@ import com.gaos.book.api.ApiFactory;
 import com.gaos.book.api.ProgressObserver;
 import com.gaos.book.base.BaseBean;
 import com.gaos.book.base.RxPresenter;
-import com.gaos.book.model.BookChapterBean;
-import com.gaos.book.model.BookInfo;
 import com.gaos.book.model.CatalogInfo;
 import com.gaos.book.model.local.BookRepository;
 import com.gaos.book.presenter.contract.ReadContract;
 import com.gaos.book.utils.LogUtils;
-import com.gaos.book.utils.MD5Utils;
-import com.gaos.book.utils.RxUtils;
 import com.gaos.book.widget.page.TxtChapter;
-
-import org.reactivestreams.Subscriber;
-import org.reactivestreams.Subscription;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -25,11 +18,9 @@ import java.util.List;
 
 import io.reactivex.Observable;
 import io.reactivex.Observer;
-import io.reactivex.Single;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
 /**
