@@ -560,6 +560,7 @@ public class ReadActivity extends BaseMVPActivity<ReadContract.Presenter>
 
     private void showSystemBar() {
         //显示
+        getWindow().setStatusBarColor(getResources().getColor(R.color.black));
         SystemBarUtils.showUnStableStatusBar(this);
         if (isFullScreen) {
             SystemBarUtils.showUnStableNavBar(this);
@@ -572,6 +573,7 @@ public class ReadActivity extends BaseMVPActivity<ReadContract.Presenter>
         if (isFullScreen) {
             SystemBarUtils.hideStableNavBar(this);
         }
+        getWindow().setStatusBarColor(getResources().getColor(R.color.theme_statusbar));
     }
 
     /**

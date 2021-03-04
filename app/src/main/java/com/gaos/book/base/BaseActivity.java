@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.gaos.book.R;
+import com.gaos.book.common.MyApplication;
 import com.gaos.book.utils.StatusBarCompat;
 
 import butterknife.ButterKnife;
@@ -71,6 +72,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setStatusBarColor(R.color.theme_statusbar);
         // 在设置内容View之前调用
         doBeforeSetContentView();
         // 设置布局

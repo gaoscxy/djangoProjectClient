@@ -5,6 +5,8 @@ import android.os.Build;
 import android.view.View;
 import android.view.WindowManager;
 
+import com.gaos.book.R;
+
 
 /**
  * Created by newbiechen on 17-5-16.
