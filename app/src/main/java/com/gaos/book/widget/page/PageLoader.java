@@ -185,7 +185,7 @@ public abstract class PageLoader {
         mTextInterval = mTextSize / 2;
         mTitleInterval = mTitleSize / 2;
         // 段落间距(大小为字体的高度)
-        mTextPara = mTextSize;
+        mTextPara = mTextSize + mTitleSize / 2;
         mTitlePara = mTitleSize;
     }
 
@@ -822,7 +822,7 @@ public abstract class PageLoader {
             String tip = "";
             switch (mStatus) {
                 case STATUS_LOADING:
-                    tip = "正在拼命加载中...";
+                    tip = "玩命加载中...";
                     break;
                 case STATUS_ERROR:
                     tip = "加载失败(点击边缘重试)";
