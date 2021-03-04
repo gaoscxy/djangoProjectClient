@@ -20,7 +20,7 @@ import java.util.List;
 */
 public class CatalogActivity extends BaseActivity {
 
-    private int book_id;
+    private long book_id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

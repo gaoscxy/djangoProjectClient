@@ -5,10 +5,8 @@ import android.os.Parcelable;
 
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Id;
-import org.greenrobot.greendao.annotation.Index;
 import org.greenrobot.greendao.annotation.ToMany;
 
-import java.io.Serializable;
 import java.util.List;
 import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.DaoException;
@@ -19,7 +17,7 @@ import com.gaos.book.model.gen.BookInfoDao;
 @Entity
 public class BookInfo implements Parcelable {
     @Id
-    private int book_id;
+    private Long book_id;
     private String book_name;
     private String book_author;
     private String book_introduce;
@@ -60,11 +58,11 @@ public class BookInfo implements Parcelable {
         this.updated = updated;
     }
 
-    public int getBook_id() {
+    public Long getBook_id() {
         return book_id;
     }
 
-    public void setBook_id(int book_id) {
+    public void setBook_id(Long book_id) {
         this.book_id = book_id;
     }
 
@@ -176,7 +174,7 @@ public class BookInfo implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
 
-        dest.writeInt(this.book_id);
+        dest.writeLong(this.book_id);
         dest.writeString(this.book_name);
         dest.writeString(this.book_author);
         dest.writeString(this.book_introduce);
@@ -204,28 +202,6 @@ public class BookInfo implements Parcelable {
         this.isLocal = isLocal;
     }
 
-    /**
-     * To-many relationship, resolved on first access (and after reset).
-     * Changes to to-many relations are not persisted, make changes to the target entity.
-     */
-    @Generated(hash = 1412780128)
-    public List<CatalogInfo> getBookChapterList() {
-        if (bookChapterList == null) {
-            final DaoSession daoSession = this.daoSession;
-            if (daoSession == null) {
-                throw new DaoException("Entity is detached from DAO context");
-            }
-            CatalogInfoDao targetDao = daoSession.getCatalogInfoDao();
-            List<CatalogInfo> bookChapterListNew = targetDao
-                    ._queryBookInfo_BookChapterList(book_id);
-            synchronized (this) {
-                if (bookChapterList == null) {
-                    bookChapterList = bookChapterListNew;
-                }
-            }
-        }
-        return bookChapterList;
-    }
 
     /** Resets a to-many relationship, making the next get call to query for a fresh result. */
     @Generated(hash = 1077762221)
@@ -276,8 +252,30 @@ public class BookInfo implements Parcelable {
         myDao = daoSession != null ? daoSession.getBookInfoDao() : null;
     }
 
+    /**
+     * To-many relationship, resolved on first access (and after reset).
+     * Changes to to-many relations are not persisted, make changes to the target entity.
+     */
+    @Generated(hash = 1412780128)
+    public List<CatalogInfo> getBookChapterList() {
+        if (bookChapterList == null) {
+            final DaoSession daoSession = this.daoSession;
+            if (daoSession == null) {
+                throw new DaoException("Entity is detached from DAO context");
+            }
+            CatalogInfoDao targetDao = daoSession.getCatalogInfoDao();
+            List<CatalogInfo> bookChapterListNew = targetDao._queryBookInfo_BookChapterList(book_id);
+            synchronized (this) {
+                if (bookChapterList == null) {
+                    bookChapterList = bookChapterListNew;
+                }
+            }
+        }
+        return bookChapterList;
+    }
+
     protected BookInfo(Parcel in) {
-        this.book_id = in.readInt();
+        this.book_id = in.readLong();
         this.book_name = in.readString();
         this.book_author = in.readString();
         this.book_introduce = in.readString();
@@ -290,8 +288,8 @@ public class BookInfo implements Parcelable {
         this.lastChapter = in.readString();
     }
 
-    @Generated(hash = 1048757036)
-    public BookInfo(int book_id, String book_name, String book_author, String book_introduce,
+    @Generated(hash = 1508333171)
+    public BookInfo(Long book_id, String book_name, String book_author, String book_introduce,
             String book_update_time, boolean isUpdate, boolean isLocal, long start, long end,
             String lastRead, int chaptersCount, String lastChapter, String cover, String updated) {
         this.book_id = book_id;

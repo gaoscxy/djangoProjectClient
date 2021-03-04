@@ -29,7 +29,7 @@ public interface ApiService {
     Observable<BaseBean<List<BookInfo>>> getBookList();
 
     @GET(GlobalConstant.URLContact.GET_CATALOG_LIST)
-    Observable<BaseBean<List<CatalogInfo>>> getCatalogList(@Query("book_id") int book_id);
+    Observable<BaseBean<List<CatalogInfo>>> getCatalogList(@Query("book_id") long book_id);
 
     @GET(GlobalConstant.URLContact.GET_CHAPTER_INFO)
     Observable<BaseBean<String>> getChapterInfo(@Query("path") String path);

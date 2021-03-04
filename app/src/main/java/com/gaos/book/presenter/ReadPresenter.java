@@ -44,7 +44,7 @@ public class ReadPresenter extends RxPresenter<ReadContract.View>
     private Disposable mChapterSub;
 
     @Override
-    public void loadCategory(int bookId) {
+    public void loadCategory(long bookId) {
 
         ApiFactory.getCatalogList(bookId)
                 .subscribe(new ProgressObserver<List<CatalogInfo>>() {
@@ -68,7 +68,7 @@ public class ReadPresenter extends RxPresenter<ReadContract.View>
 //    }
 
     @Override
-    public void loadChapter(int bookId, List<TxtChapter> bookChapters) {
+    public void loadChapter(long bookId, List<TxtChapter> bookChapters) {
         int size = bookChapters.size();
 
         //取消上次的任务，防止多次加载

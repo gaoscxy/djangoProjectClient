@@ -553,22 +553,22 @@ public abstract class PageLoader {
      */
     public void saveRecord() {
 
-//        if (mChapterList.isEmpty()) {
-//            return;
-//        }
-//
-//        mBookRecord.setBookId(mCollBook.get_id());
-//        mBookRecord.setChapter(mCurChapterPos);
-//
-//        if (mCurPage != null) {
-//            mBookRecord.setPagePos(mCurPage.position);
-//        } else {
-//            mBookRecord.setPagePos(0);
-//        }
-//
-//        //存储到数据库
-//        BookRepository.getInstance()
-//                .saveBookRecord(mBookRecord);
+        if (mChapterList.isEmpty()) {
+            return;
+        }
+
+        mBookRecord.setBookId(mCollBook.getBook_id());
+        mBookRecord.setChapter(mCurChapterPos);
+
+        if (mCurPage != null) {
+            mBookRecord.setPagePos(mCurPage.position);
+        } else {
+            mBookRecord.setPagePos(0);
+        }
+
+        //存储到数据库
+        BookRepository.getInstance()
+                .saveBookRecord(mBookRecord);
     }
 
     /**

@@ -12,11 +12,11 @@ import org.greenrobot.greendao.annotation.Index;
 @Entity
 public class CatalogInfo  implements Parcelable {
     @Id
-    private int chapter_id;
+    private Long chapter_id;
     private String chapter_name;
     private String chapter_path;
     @Index
-    private int bookinfo_id;
+    private Long bookinfo_id;
     //章节内容在文章中的起始位置(本地)
     long start;
     //章节内容在文章中的终止位置(本地)
@@ -47,14 +47,6 @@ public class CatalogInfo  implements Parcelable {
         this.end = end;
     }
 
-    public int getChapter_id() {
-        return chapter_id;
-    }
-
-    public void setChapter_id(int chapter_id) {
-        this.chapter_id = chapter_id;
-    }
-
     public String getChapter_name() {
         return chapter_name;
     }
@@ -71,11 +63,19 @@ public class CatalogInfo  implements Parcelable {
         this.chapter_path = chapter_path;
     }
 
-    public int getBookinfo_id() {
+    public Long getChapter_id() {
+        return chapter_id;
+    }
+
+    public void setChapter_id(Long chapter_id) {
+        this.chapter_id = chapter_id;
+    }
+
+    public Long getBookinfo_id() {
         return bookinfo_id;
     }
 
-    public void setBookinfo_id(int bookinfo_id) {
+    public void setBookinfo_id(Long bookinfo_id) {
         this.bookinfo_id = bookinfo_id;
     }
 
@@ -86,10 +86,10 @@ public class CatalogInfo  implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(this.chapter_id);
+        dest.writeLong(this.chapter_id);
         dest.writeString(this.chapter_name);
         dest.writeString(this.chapter_path);
-        dest.writeInt(this.bookinfo_id);
+        dest.writeLong(this.bookinfo_id);
     }
 
     public boolean getUnreadble() {
@@ -97,15 +97,15 @@ public class CatalogInfo  implements Parcelable {
     }
 
     protected CatalogInfo(Parcel in) {
-        this.chapter_id = in.readInt();
+        this.chapter_id = in.readLong();
         this.chapter_name = in.readString();
         this.chapter_path = in.readString();
-        this.bookinfo_id = in.readInt();
+        this.bookinfo_id = in.readLong();
     }
 
-    @Generated(hash = 1537980047)
-    public CatalogInfo(int chapter_id, String chapter_name, String chapter_path,
-            int bookinfo_id, long start, long end, boolean unreadble) {
+    @Generated(hash = 17520835)
+    public CatalogInfo(Long chapter_id, String chapter_name, String chapter_path,
+            Long bookinfo_id, long start, long end, boolean unreadble) {
         this.chapter_id = chapter_id;
         this.chapter_name = chapter_name;
         this.chapter_path = chapter_path;
@@ -118,6 +118,7 @@ public class CatalogInfo  implements Parcelable {
     @Generated(hash = 1044076522)
     public CatalogInfo() {
     }
+
 
     public static final Creator<CatalogInfo> CREATOR = new Creator<CatalogInfo>() {
         @Override

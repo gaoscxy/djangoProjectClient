@@ -10,7 +10,7 @@ import java.util.List;
 public class TxtChapter{
 
     //章节所属的小说(网络)
-    int bookId;
+    long bookId;
     //章节的链接(网络)
     String link;
 
@@ -22,12 +22,12 @@ public class TxtChapter{
     //章节内容在文章中的终止位置(本地)
     long end;
 
-    public int getBookId() {
+    public long getBookId() {
         return bookId;
     }
 
-    public void setBookId(int id) {
-        this.bookId = id;
+    public void setBookId(long bookId) {
+        this.bookId = bookId;
     }
 
     public String getLink() {

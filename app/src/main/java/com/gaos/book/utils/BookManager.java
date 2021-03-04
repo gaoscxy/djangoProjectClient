@@ -175,7 +175,7 @@ public class BookManager{
      * @param fileName
      * @return
      */
-    public static File getBookFile(int folderName, String fileName){
+    public static File getBookFile(long folderName, String fileName){
         return FileUtils.getFile(Constant.BOOK_CACHE_PATH + folderName
                 + File.separator + fileName + FileUtils.SUFFIX_NB);
     }
@@ -192,7 +192,7 @@ public class BookManager{
      * @param fileName: chapterName
      * @return
      */
-    public static boolean isChapterCached(int folderName, String fileName){
+    public static boolean isChapterCached(long folderName, String fileName){
         File file = new File(Constant.BOOK_CACHE_PATH + folderName
                 + File.separator + fileName + FileUtils.SUFFIX_NB);
         return file.exists();

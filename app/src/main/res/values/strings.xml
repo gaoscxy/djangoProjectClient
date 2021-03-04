@@ -58,22 +58,6 @@
 
 
 
-
-    <!--string_array-->
-    <string-array name="nb_fragment_title">
-        <item>@string/nb.fragment.title.bookshelf</item>
-        <item>@string/nb.fragment.title.community</item>
-        <item>@string/nb.fragment.title.find</item>
-    </string-array>
-
-    <string-array name="nb_fragment_section">
-        <item>@string/nb.fragment.community.comment</item>
-        <item>@string/nb.fragment.community.discussion</item>
-        <item>@string/nb.fragment.community.help</item>
-        <item>@string/nb.fragment.community.girl</item>
-        <item>@string/nb.fragment.community.compose</item>
-    </string-array>
-
     <!--榜单分类-->
     <string-array name="nb_fragment_bill_book">
         <item>周榜</item>

@@ -6,25 +6,19 @@ import android.util.Log;
 import com.gaos.book.model.BookInfo;
 import com.gaos.book.model.BookRecordBean;
 import com.gaos.book.model.CatalogInfo;
-import com.gaos.book.model.CollBookBean;
 import com.gaos.book.model.gen.BookInfoDao;
 import com.gaos.book.model.gen.BookRecordBeanDao;
 import com.gaos.book.model.gen.CatalogInfoDao;
-import com.gaos.book.model.gen.CollBookBeanDao;
 import com.gaos.book.model.gen.DaoSession;
 import com.gaos.book.utils.BookManager;
 import com.gaos.book.utils.Constant;
 import com.gaos.book.utils.FileUtils;
 import com.gaos.book.utils.IOUtils;
 
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.Reader;
 import java.io.Writer;
 import java.util.List;
 
@@ -128,7 +122,7 @@ public class BookRepository {
      * @param fileName
      * @param content
      */
-    public void saveChapterInfo(int bookId,String fileName,String content){
+    public void saveChapterInfo(long bookId,String fileName,String content){
         File file = BookManager.getBookFile(bookId, fileName);
         //获取流并存储
         Writer writer = null;
@@ -148,7 +142,7 @@ public class BookRepository {
     }
 
     /*****************************get************************************************/
-    public BookInfo getCollBook(int bookId){
+    public BookInfo getCollBook(long bookId){
         BookInfo bean = mCollBookDao.queryBuilder()
                 .where(BookInfoDao.Properties.Book_id.eq(bookId))
                 .unique();
@@ -165,7 +159,7 @@ public class BookRepository {
 
 
     //获取书籍列表
-    public Single<List<CatalogInfo>> getBookChaptersInRx(int bookId){
+    public Single<List<CatalogInfo>> getBookChaptersInRx(long bookId){
         return Single.create(new SingleOnSubscribe<List<CatalogInfo>>() {
             @Override
             public void subscribe(SingleEmitter<List<CatalogInfo>> e) throws Exception {
@@ -180,7 +174,7 @@ public class BookRepository {
     }
 
     //获取阅读记录
-    public BookRecordBean getBookRecord(int bookId){
+    public BookRecordBean getBookRecord(long bookId){
         return mSession.getBookRecordBeanDao()
                 .queryBuilder()
                 .where(BookRecordBeanDao.Properties.BookId.eq(bookId))
@@ -236,7 +230,7 @@ public class BookRepository {
     }
 
     //这个需要用rx，进行删除
-    public void deleteBookChapter(int bookId){
+    public void deleteBookChapter(long bookId){
         mSession.getBookInfoDao()
                 .queryBuilder()
                 .where(BookInfoDao.Properties.Book_id.eq(bookId))
@@ -249,7 +243,7 @@ public class BookRepository {
     }
 
     //删除书籍
-    public void deleteBook(int bookId){
+    public void deleteBook(long bookId){
         FileUtils.deleteFile(Constant.BOOK_CACHE_PATH+bookId);
     }
 

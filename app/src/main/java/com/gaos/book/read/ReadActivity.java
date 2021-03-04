@@ -201,7 +201,7 @@ public class ReadActivity extends BaseMVPActivity<ReadContract.Presenter>
     private boolean isFullScreen = false;
     private boolean isRegistered = false;
 
-    private int mBookId;
+    private long mBookId;
 
     public static void startActivity(Context context, BookInfo bookInfo, boolean isCollected) {
         context.startActivity(new Intent(context, ReadActivity.class)
@@ -703,25 +703,36 @@ public class ReadActivity extends BaseMVPActivity<ReadContract.Presenter>
 
         if (!mCollBook.isLocal() && !isCollected
                 && !mCollBook.getBookChapters().isEmpty()) {
-            AlertDialog alertDialog = new AlertDialog.Builder(this)
-                    .setTitle("加入书架")
-                    .setMessage("喜欢本书就加入书架吧")
-                    .setPositiveButton("确定", (dialog, which) -> {
-                        //设置为已收藏
-                        isCollected = true;
-                        //设置阅读时间
-                        mCollBook.setLastRead(StringUtils.
-                                dateConvert(System.currentTimeMillis(), Constant.FORMAT_BOOK_DATE));
 
-                        BookRepository.getInstance()
-                                .saveCollBookWithAsync(mCollBook);
+            //设置为已收藏
+            isCollected = true;
+            //设置阅读时间
+            mCollBook.setLastRead(StringUtils.
+                    dateConvert(System.currentTimeMillis(), Constant.FORMAT_BOOK_DATE));
 
-                        exit();
-                    })
-                    .setNegativeButton("取消", (dialog, which) -> {
-                        exit();
-                    }).create();
-            alertDialog.show();
+            BookRepository.getInstance()
+                    .saveCollBookWithAsync(mCollBook);
+
+            exit();
+//            AlertDialog alertDialog = new AlertDialog.Builder(this)
+//                    .setTitle("加入书架")
+//                    .setMessage("喜欢本书就加入书架吧")
+//                    .setPositiveButton("确定", (dialog, which) -> {
+//                        //设置为已收藏
+//                        isCollected = true;
+//                        //设置阅读时间
+//                        mCollBook.setLastRead(StringUtils.
+//                                dateConvert(System.currentTimeMillis(), Constant.FORMAT_BOOK_DATE));
+//
+//                        BookRepository.getInstance()
+//                                .saveCollBookWithAsync(mCollBook);
+//
+//                        exit();
+//                    })
+//                    .setNegativeButton("取消", (dialog, which) -> {
+//                        exit();
+//                    }).create();
+//            alertDialog.show();
         } else {
             exit();
         }

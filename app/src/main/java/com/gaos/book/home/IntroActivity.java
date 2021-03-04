@@ -25,8 +25,9 @@ import butterknife.BindView;
 public class IntroActivity extends BaseActivity {
 
     public static final String RESULT_IS_COLLECTED = "result_is_collected";
+    private static final int REQUEST_READ = 1;
     private boolean isCollected = false;
-    private int book_id;
+    private long book_id;
 
     @BindView(R.id.name)
     MyTextView nameTv;
@@ -48,8 +49,14 @@ public class IntroActivity extends BaseActivity {
 
     @Override
     protected void initView(Bundle savedInstanceState) {
-        Intent intent = getIntent();
-        bookinfo = (BookInfo)intent.getParcelableExtra("bookinfo");
+        bookinfo = BookRepository.getInstance().getCollBook(book_id);
+        if(bookinfo != null){
+            isCollected = true;
+            readBtn.setText("继续阅读");
+        }else{
+            Intent intent = getIntent();
+            bookinfo = (BookInfo)intent.getParcelableExtra("bookinfo");
+        }
         String name = bookinfo.getBook_name();
         String author = bookinfo.getBook_author();
         String introduce = bookinfo.getBook_introduce();
@@ -64,13 +71,6 @@ public class IntroActivity extends BaseActivity {
     @Override
     protected void initData(Bundle savedInstanceState) {
 
-//        mCatalogInfo = BookRepository.getInstance().getCollBook(book_id);
-
-        bookinfo = BookRepository.getInstance().getCollBook(book_id);
-        if(bookinfo != null){
-            isCollected = true;
-            readBtn.setText("继续阅读");
-        }
     }
 
     @Override
