@@ -12,17 +12,25 @@ import com.gaos.book.R;
 import com.gaos.book.api.ApiFactory;
 import com.gaos.book.api.ProgressObserver;
 import com.gaos.book.base.BaseActivity;
+import com.gaos.book.base.BaseMVPActivity;
+import com.gaos.book.presenter.MainPresenter;
+import com.gaos.book.presenter.contract.MainContract;
 import com.gaos.book.view.adapter.BookListAdapter;
 import com.gaos.book.model.BookInfo;
+import com.gaos.book.view.widget.ClearEditText;
+import com.jakewharton.rxbinding2.widget.RxTextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseMVPActivity<MainContract.Presenter>
+        implements MainContract.View{
     @BindView(R.id.list)
     RecyclerView mRecycler;
+    @BindView(R.id.et_search)
+    ClearEditText etSearch;
     BookListAdapter mAdapter;
     View header;
     @Override
@@ -45,27 +53,44 @@ public class MainActivity extends BaseActivity {
     }
 
     @Override
-    protected void initData(Bundle savedInstanceState) {
+    protected void initClick() {
+        super.initClick();
 
-        getBookList();
-    }
-
-    public void getBookList() {
-        ApiFactory.getBookList()
-                .subscribe(new ProgressObserver<List<BookInfo>>() {
-                    @Override
-                    public void onSuccess(List<BookInfo> result) {
-                        mAdapter.addRes(result);
-                    }
-
-                    @Override
-                    public void onFailure(Throwable e, int errcode, String errormsg) {
-                        showToast(errormsg);
+        RxTextView.afterTextChangeEvents(etSearch)
+                .subscribe(textViewAfterTextChangeEvent -> {
+                    mPresenter.getSearchBookList(etSearch.getText().toString());
+                    if (textViewAfterTextChangeEvent.editable().length() == 0) {
+                        //当搜索框为空的时候，清除搜索条件重新搜索
+                        mPresenter.getBookList();
+                    }else{
+                        mPresenter.getSearchBookList(etSearch.getText().toString());
                     }
                 });
     }
 
-//    @OnClick(R.id.button)
+    @Override
+    protected void initData(Bundle savedInstanceState) {
+        super.processLogic();
+        mPresenter.getBookList();
+    }
+
+    @Override
+    protected MainContract.Presenter bindPresenter() {
+        return new MainPresenter();
+    }
+
+    @Override
+    public void showBookList(List<BookInfo> bookList) {
+        mAdapter.updateRes(bookList);
+    }
+
+    @Override
+    public void showSearchBookResult(List<BookInfo> bookList) {
+
+        mAdapter.updateRes(bookList);
+    }
+
+    //    @OnClick(R.id.button)
 //    public void putData() {
 //        String title = textView.getText().toString();
 //        String name = textView2.getText().toString();

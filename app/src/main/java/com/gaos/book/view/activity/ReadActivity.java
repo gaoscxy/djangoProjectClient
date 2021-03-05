@@ -644,17 +644,6 @@ public class ReadActivity extends BaseMVPActivity<ReadContract.Presenter>
         }
     }
 
-    /***************************view************************************/
-    @Override
-    public void showError() {
-
-    }
-
-    @Override
-    public void complete() {
-
-    }
-
     @Override
     public void showCategory(List<CatalogInfo> bookChapters) {
         mPageLoader.getCollBook().setBookChapterList(bookChapters);

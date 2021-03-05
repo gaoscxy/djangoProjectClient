@@ -33,6 +33,10 @@ public class ApiFactory {
         return Api.getInstance().service.getBookList().compose(RxSchedulers.observableIO2Main());
 
     }
+    public static Observable<BaseBean<List<BookInfo>>> getSearchBookList(String keyword) {
+        return Api.getInstance().service.getSearchBookList(keyword).compose(RxSchedulers.observableIO2Main());
+
+    }
     public static Observable<BaseBean<List<CatalogInfo>>> getCatalogList(long book_id) {
         return Api.getInstance().service.getCatalogList(book_id).compose(RxSchedulers.observableIO2Main());
 

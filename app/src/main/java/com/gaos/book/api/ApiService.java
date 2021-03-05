@@ -27,6 +27,9 @@ public interface ApiService {
     @GET(GlobalConstant.URLContact.GET_BOOK_LIST)
     Observable<BaseBean<List<BookInfo>>> getBookList();
 
+    @GET(GlobalConstant.URLContact.GET_SEARCH_BOOK_LIST)
+    Observable<BaseBean<List<BookInfo>>> getSearchBookList(@Query("keyword") String keyword);
+
     @GET(GlobalConstant.URLContact.GET_CATALOG_LIST)
     Observable<BaseBean<List<CatalogInfo>>> getCatalogList(@Query("book_id") long book_id);
 

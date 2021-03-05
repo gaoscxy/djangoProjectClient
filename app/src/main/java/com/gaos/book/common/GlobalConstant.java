@@ -42,6 +42,7 @@ public class GlobalConstant {
         String BASE_URL = "http://192.168.6.131:8000";
         String SAVEBOOK = BASE_URL + "/saveBook/";
         String GET_BOOK_LIST = BASE_URL + "/getBookList/";
+        String GET_SEARCH_BOOK_LIST = BASE_URL + "/getSearchBookList/";
         String GET_CATALOG_LIST = BASE_URL + "/getCatalogList/";
         String GET_CHAPTER_INFO = BASE_URL + "/getBookDetails/";
     }
