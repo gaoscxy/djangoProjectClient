@@ -138,4 +138,11 @@
 
     <!-- TextAppearance:修改 -->
     <style name="NB.Theme.TextAppearance"/>
+
+    <!-- 自定义dialog样式 -->
+    <style name="Dialog" parent="android:style/Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowBackground">@color/transparent</item>
+    </style>
 </resources>

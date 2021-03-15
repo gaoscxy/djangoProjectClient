@@ -3,6 +3,7 @@ package com.gaos.book.api;
 import com.gaos.book.base.BaseBean;
 import com.gaos.book.model.BookInfo;
 import com.gaos.book.model.CatalogInfo;
+import com.gaos.book.model.VersionInfo;
 
 import java.util.List;
 
@@ -43,7 +44,12 @@ public class ApiFactory {
     }
     public static Observable<BaseBean<String>> getChapterInfo(String path) {
         return Api.getInstance().service.getChapterInfo(path).compose(RxSchedulers.observableIO2Main());
-
+    }
+    public static Observable<VersionInfo> getVersion() {
+        return Api.getInstance().service.getVersion().compose(RxSchedulers.observableIO2Main());
+    }
+    public static Observable<BaseBean<String>> postRecommend(String name,String tel) {
+        return Api.getInstance().service.postRecommend(name,tel).compose(RxSchedulers.observableIO2Main());
     }
 
 

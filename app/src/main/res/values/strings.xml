@@ -49,16 +49,6 @@
     </string-array>
 
 
-
-
-
-
-
-
-
-
-
-
     <!--榜单分类-->
     <string-array name="nb_fragment_bill_book">
         <item>周榜</item>
@@ -176,5 +166,8 @@
 
     <!--BookShelf-->
     <string name="nb.bookshelf.book_not_exist">文件不存在或者内容为空,是否删除?</string>
+
+    <!--    推荐图书-->
+    <string name="recommend_tips">这位道友，这里没有你要的图书，在下方输入书名和作者还有你的联系方式，点击发送，就可以通知站长增加这本书了。</string>
 
 </resources>

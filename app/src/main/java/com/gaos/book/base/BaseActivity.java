@@ -92,11 +92,11 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     private void initToolbar(){
         //更严谨是通过反射判断是否存在Toolbar
-//        mToolbar = ButterKnife.findById(this, R.id.toolbar);
-//        if (mToolbar != null){
-//            supportActionBar(mToolbar);
-//            setUpToolbar(mToolbar);
-//        }
+        mToolbar = (Toolbar)findViewById(R.id.toolbar);
+        if (mToolbar != null){
+            supportActionBar(mToolbar);
+            setUpToolbar(mToolbar);
+        }
     }
     @Override
     protected void onDestroy() {

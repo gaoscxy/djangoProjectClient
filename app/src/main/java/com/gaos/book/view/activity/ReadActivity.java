@@ -281,6 +281,9 @@ public class ReadActivity extends BaseMVPActivity<ReadContract.Presenter>
     protected void setUpToolbar(Toolbar toolbar) {
         super.setUpToolbar(toolbar);
         //设置标题
+        if(mCollBook == null){
+            return;
+        }
         toolbar.setTitle(mCollBook.getBook_name());
         //半透明化StatusBar
         SystemBarUtils.transparentStatusBar(this);

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/theme"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".view.activity.RecommendActivity">
+
+    <include layout="@layout/toolbar"/>
+
+    <com.gaos.book.view.widget.MyTextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin"
+        android:text="@string/recommend_tips" />
+
+    <com.gaos.book.view.widget.MyEditText
+        android:id="@+id/content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin"
+        android:textSize="15sp"
+        android:hint="在这里输入图书名和作者名"
+        tools:layout_editor_absoluteX="185dp"
+        tools:layout_editor_absoluteY="296dp" />
+    <com.gaos.book.view.widget.MyEditText
+        android:id="@+id/tel"
+        android:layout_margin="@dimen/margin"
+        android:textSize="15sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="在这里输入你的联系电话"
+        android:inputType="phone"
+        tools:layout_editor_absoluteX="185dp"
+        tools:layout_editor_absoluteY="296dp" />
+
+    <com.gaos.book.view.widget.MyButton
+        android:id="@+id/button"
+        android:layout_margin="@dimen/margin"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:text="发送"
+        android:onClick="commitData"
+        android:background="@drawable/button_shape_bg"
+        android:layout_width="150dp"
+        tools:layout_editor_absoluteX="176dp"
+        tools:layout_editor_absoluteY="418dp" />
+</LinearLayout>

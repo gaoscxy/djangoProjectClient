@@ -5,6 +5,7 @@ import com.gaos.book.base.BaseBean;
 import com.gaos.book.common.GlobalConstant;
 import com.gaos.book.model.BookInfo;
 import com.gaos.book.model.CatalogInfo;
+import com.gaos.book.model.VersionInfo;
 
 import java.util.List;
 
@@ -35,6 +36,13 @@ public interface ApiService {
 
     @GET(GlobalConstant.URLContact.GET_CHAPTER_INFO)
     Observable<BaseBean<String>> getChapterInfo(@Query("path") String path);
+
+    @FormUrlEncoded
+    @POST(GlobalConstant.URLContact.SAVE_RECOMMEND_BOOK)
+    Observable<BaseBean<String>> postRecommend(@Field("name") String name, @Field("tel") String tel);
+
+    @GET(GlobalConstant.URLContact.GET_VERSION)
+    Observable<VersionInfo> getVersion();
     //登录
 //    @FormUrlEncoded
 //    @POST(GlobalConstant.URLContact.USER_LOGIN_URL)

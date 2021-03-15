@@ -7,6 +7,7 @@ import com.gaos.book.base.BaseBean;
 import com.gaos.book.base.RxPresenter;
 import com.gaos.book.model.BookInfo;
 import com.gaos.book.model.CatalogInfo;
+import com.gaos.book.model.VersionInfo;
 import com.gaos.book.model.local.BookRepository;
 import com.gaos.book.presenter.contract.MainContract;
 import com.gaos.book.utils.LogUtils;
@@ -61,6 +62,32 @@ public class MainPresenter extends RxPresenter<MainContract.View>
                     @Override
                     public void onFailure(Throwable e, int errcode, String errormsg) {
                         ToastUtils.show(errormsg);
+                    }
+                });
+    }
+
+    @Override
+    public void getVersion() {
+
+        ApiFactory.getVersion()
+                .subscribe(new Observer<VersionInfo>() {
+                    @Override
+                    public void onSubscribe(@NonNull Disposable d) {
+                    }
+
+                    @Override
+                    public void onNext(@NonNull VersionInfo versionInfo) {
+                        mView.showVersionMsg(versionInfo);
+                    }
+
+                    @Override
+                    public void onError(@NonNull Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
                     }
                 });
     }

@@ -45,6 +45,8 @@ public class GlobalConstant {
         String GET_SEARCH_BOOK_LIST = BASE_URL + "/getSearchBookList/";
         String GET_CATALOG_LIST = BASE_URL + "/getCatalogList/";
         String GET_CHAPTER_INFO = BASE_URL + "/getBookDetails/";
+        String GET_VERSION = BASE_URL + "/getVersion/";
+        String SAVE_RECOMMEND_BOOK = BASE_URL + "/saveRecommendBook/";
     }
 
     //静态web页面url
