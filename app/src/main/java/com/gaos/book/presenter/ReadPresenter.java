@@ -3,6 +3,7 @@ package com.gaos.book.presenter;
 
 
 import com.gaos.book.api.ApiFactory;
+import com.gaos.book.api.BaseObserver;
 import com.gaos.book.api.ProgressObserver;
 import com.gaos.book.base.BaseBean;
 import com.gaos.book.base.RxPresenter;
@@ -38,7 +39,7 @@ public class ReadPresenter extends RxPresenter<ReadContract.View>
     public void loadCategory(long bookId) {
 
         ApiFactory.getCatalogList(bookId)
-                .subscribe(new ProgressObserver<List<CatalogInfo>>() {
+                .subscribe(new BaseObserver<List<CatalogInfo>>() {
                     @Override
                     public void onSuccess(List<CatalogInfo> result) {
                         mView.showCategory(result);

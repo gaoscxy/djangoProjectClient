@@ -132,32 +132,4 @@ public class MainActivity extends BaseMVPActivity<MainContract.Presenter>
 
         });
     }
-
-//    @OnClick(R.id.button)
-//    public void putData() {
-//        String title = textView.getText().toString();
-//        String name = textView2.getText().toString();
-//        int publisher_id = 1;
-//        // 请求参数
-//        ApiFactory.save(title, name, publisher_id)
-//                .subscribe(new ProgressObserver<String>() {
-//                    @Override
-//                    public void onSuccess(String result) {
-//                        if (result.equals("done")) {
-//                            showToast("insert success!");
-////                            User user = SpUtil.getUser();
-////                            user.getUserprofilesummary().setGender(Gender + "");
-////                            SpUtil.setUser(user);
-////                            setResult(RESULT_OK);
-////                            finish();
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onFailure(Throwable e, int errcode, String errormsg) {
-//                        showToast(errormsg);
-//                    }
-//                });
-//
-//    }
 }
