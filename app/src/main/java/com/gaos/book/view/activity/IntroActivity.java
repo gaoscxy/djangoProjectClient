@@ -82,6 +82,11 @@ public class IntroActivity extends BaseActivity {
         });
     }
 
+    public void clickBuy(View view){
+        Intent intent = new Intent(this,AboutActivity.class);
+        startActivity(intent);
+    }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

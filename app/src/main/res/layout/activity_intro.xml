@@ -9,7 +9,7 @@
     tools:context=".view.activity.MainActivity">
 
     <LinearLayout
-        android:layout_above="@+id/readbtn"
+        android:layout_above="@+id/buybtn"
         android:padding="@dimen/margin"
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -44,16 +44,16 @@
         android:textSize="14sp"
         android:textStyle="bold" />
 
-    <com.gaos.book.view.widget.MyTextView
-        android:id="@+id/intro"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:gravity="top"
-        android:maxHeight="200dp"
-        android:text="耽美小说"
-        android:textSize="14sp"
-        android:textStyle="bold" />
+        <com.gaos.book.view.widget.MyTextView
+            android:id="@+id/intro"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="top"
+            android:maxHeight="200dp"
+            android:text="耽美小说"
+            android:textSize="14sp"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <com.gaos.book.view.widget.MyButton
@@ -65,6 +65,24 @@
         android:layout_marginBottom="50dp"
         android:background="@drawable/button_shape_bg"
         android:text="开始阅读" />
+
+    <com.gaos.book.view.widget.MyTextView
+        android:id="@+id/buybtn"
+        android:layout_above="@+id/readbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:paddingLeft="@dimen/margin"
+        android:paddingRight="@dimen/margin"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_centerHorizontal="true"
+        android:maxHeight="200dp"
+        android:layout_marginBottom="10dp"
+        android:text="广播剧"
+        android:onClick="clickBuy"
+        android:textColor="@color/link_color"
+        android:textSize="14sp"
+        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/logo"

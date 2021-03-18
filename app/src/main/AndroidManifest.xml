@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
         android:usesCleartextTraffic="true">
-        <activity android:name=".view.activity.RecommendActivity"></activity>
+        <activity android:name=".view.activity.AboutActivity"></activity>
+        <activity android:name=".view.activity.RecommendActivity" />
         <activity
             android:name=".view.activity.IntroActivity"
             android:launchMode="singleTask" />

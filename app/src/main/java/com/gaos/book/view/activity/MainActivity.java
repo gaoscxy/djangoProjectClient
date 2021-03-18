@@ -88,6 +88,11 @@ public class MainActivity extends BaseMVPActivity<MainContract.Presenter>
                 });
     }
 
+    public void clickAbout(View view){
+        Intent intent = new Intent(this,AboutActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     protected void initData(Bundle savedInstanceState) {
         super.processLogic();

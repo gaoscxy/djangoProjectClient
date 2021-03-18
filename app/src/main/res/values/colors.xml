@@ -100,4 +100,6 @@
     <color name="nb.read.menu.bg">#191919</color>
     <color name="nb.read.menu.text">#CBCBCB</color>
     <color name="nb.read.bar.translucent">#88000000</color>
+
+    <color name="link_color">#2459d0</color>
 </resources>

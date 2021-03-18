@@ -10,17 +10,31 @@
     android:focusableInTouchMode="true"
     tools:context=".view.activity.MainActivity">
 
-    <com.gaos.book.view.widget.MyTextView
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:layout_marginTop="@dimen/margin"
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:textStyle="bold"
-        android:textSize="@dimen/title_text_size"
-        android:text="耽美小说" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
 
+        <com.gaos.book.view.widget.MyTextView
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/margin"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:textStyle="bold"
+            android:textSize="@dimen/title_text_size"
+            android:text="耽美小说" />
 
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/margin"
+            android:onClick="clickAbout"
+            android:padding="7dp"
+            android:src="@drawable/about" />
+    </RelativeLayout>
     <RelativeLayout
         android:id="@+id/searsh_container"
         android:layout_width="match_parent"
