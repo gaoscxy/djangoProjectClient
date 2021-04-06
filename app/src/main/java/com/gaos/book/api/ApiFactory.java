@@ -30,8 +30,8 @@ public class ApiFactory {
         return Api.getInstance().service.save(title, name,publisher_id).compose(RxSchedulers.observableIO2Main());
 
     }
-    public static Observable<BaseBean<List<BookInfo>>> getBookList() {
-        return Api.getInstance().service.getBookList().compose(RxSchedulers.observableIO2Main());
+    public static Observable<BaseBean<List<BookInfo>>> getBookList(int page) {
+        return Api.getInstance().service.getBookList(page).compose(RxSchedulers.observableIO2Main());
 
     }
     public static Observable<BaseBean<List<BookInfo>>> getSearchBookList(String keyword) {
@@ -50,6 +50,10 @@ public class ApiFactory {
     }
     public static Observable<BaseBean<String>> postRecommend(String name,String tel) {
         return Api.getInstance().service.postRecommend(name,tel).compose(RxSchedulers.observableIO2Main());
+    }
+
+    public static Observable<BaseBean<String>> isMarketPass() {
+        return Api.getInstance().service.isMarketPass().compose(RxSchedulers.observableIO2Main());
     }
 
 

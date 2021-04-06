@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">读书</string>
+    <string name="app_name">道友小说</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
 
@@ -171,11 +171,13 @@
     <string name="recommend_tips">这位道友，这里没有你要的图书，在下方输入书名和作者还有你的联系方式，点击发送，就可以通知站长增加这本书了。</string>
 
     <string name="about">
-1、广播剧3元一季，购买请扫描下方微信，所得费用全部用于APP建设和服务器购买\n\n
+ 1、广播剧3元一季，购买请扫描下方微信，所得费用全部用于APP建设和服务器购买\n\n
 2、本站图书均为免费阅读，为广大书友造福\n\n
 3、可通过推荐图书方式或者扫描下方微信，推荐本站加入图书\n\n
 4、本站数据来自互联网爬取，如有侵权，请扫描下方微信联系作者删除\n\n
 5、如有意见或建议请扫描下方微信\n\n
 6、如果您认为本站内容对你确实有帮助，或者喜欢本站，不妨扫描下方微信小额赞助一下。用于补贴下本站服务器的成本。</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="login">本机号码一键登录</string>
 
 </resources>

@@ -39,7 +39,9 @@ public class GlobalConstant {
 
     public interface URLContact {
         //开发环境
-        String BASE_URL = "http://192.168.6.131:8000";
+//        String BASE_URL = "http://192.168.6.131:8000";
+        //生产环境
+        String BASE_URL = "http://1.15.109.137:8000";
         String SAVEBOOK = BASE_URL + "/saveBook/";
         String GET_BOOK_LIST = BASE_URL + "/getBookList/";
         String GET_SEARCH_BOOK_LIST = BASE_URL + "/getSearchBookList/";
@@ -47,10 +49,11 @@ public class GlobalConstant {
         String GET_CHAPTER_INFO = BASE_URL + "/getBookDetails/";
         String GET_VERSION = BASE_URL + "/getVersion/";
         String SAVE_RECOMMEND_BOOK = BASE_URL + "/saveRecommendBook/";
+        String IS_MARKET_PASS = BASE_URL + "/isMarketPass/";
     }
 
     //静态web页面url
-    public static final String URL_ABOUT_US = URLContact.BASE_URL + "/fzps/base/common/about.html";               //当前版本
+    public static final String URL_ABOUT_US = "http://1.15.109.137:81/about.html";               //当前版本
     public static final String URL_HOT_LINE = URLContact.BASE_URL + "/fzps/base/common/hotline.html";             //热线咨询
     public static final String URL_USER_PROTOCOL = URLContact.BASE_URL + "/fzps/user/t/user_1_t.html";            //用户服务协议
     public static final String URL_USER_PRIVACY = URLContact.BASE_URL + "/fzps/user/t/user_3_t.html";            //隐私政策

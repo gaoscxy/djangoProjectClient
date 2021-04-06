@@ -2,6 +2,7 @@ package com.gaos.book.presenter;
 
 
 import com.gaos.book.api.ApiFactory;
+import com.gaos.book.api.BaseObserver;
 import com.gaos.book.api.ProgressObserver;
 import com.gaos.book.base.BaseBean;
 import com.gaos.book.base.RxPresenter;
@@ -34,9 +35,25 @@ public class MainPresenter extends RxPresenter<MainContract.View>
     private static final String TAG = "MainPresenter";
 
     @Override
-    public void getBookList() {
-        ApiFactory.getBookList()
+    public void getBookList(int page) {
+        ApiFactory.getBookList(page)
                 .subscribe(new ProgressObserver<List<BookInfo>>() {
+                    @Override
+                    public void onSuccess(List<BookInfo> result) {
+                        mView.showBookList(result);
+                    }
+
+                    @Override
+                    public void onFailure(Throwable e, int errcode, String errormsg) {
+                        ToastUtils.show(errormsg);
+                    }
+                });
+    }
+
+    @Override
+    public void getRefreshOrMoreBookList(int page) {
+        ApiFactory.getBookList(page)
+                .subscribe(new BaseObserver<List<BookInfo>>() {
                     @Override
                     public void onSuccess(List<BookInfo> result) {
                         mView.showBookList(result);

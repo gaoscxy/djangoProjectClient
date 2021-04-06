@@ -61,6 +61,12 @@ public class BookListAdapter extends BaseRecyclerAdapter<BookInfo> {
         }
     }
 
+    public void clear(){
+        if (data != null && data.size() != 0) {
+            this.data.clear();
+        }
+    }
+
     @Override
     public RecyclerView.ViewHolder onCreate(ViewGroup parent, int viewType) {
         View layout = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_main, parent, false);

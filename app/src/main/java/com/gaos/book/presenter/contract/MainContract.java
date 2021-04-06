@@ -23,7 +23,8 @@ public interface MainContract extends BaseContract {
     }
 
     interface Presenter extends BaseContract.BasePresenter<MainContract.View>{
-        void getBookList();
+        void getBookList(int page);
+        void getRefreshOrMoreBookList(int page);
         void getSearchBookList(String keyword);
         void getVersion();
     }

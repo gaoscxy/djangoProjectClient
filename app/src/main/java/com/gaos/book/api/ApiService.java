@@ -26,7 +26,7 @@ public interface ApiService {
     Observable<BaseBean<String>> save(@Field("title") String title,@Field("name") String name,@Field("publisher_id") int publisher_id);
 
     @GET(GlobalConstant.URLContact.GET_BOOK_LIST)
-    Observable<BaseBean<List<BookInfo>>> getBookList();
+    Observable<BaseBean<List<BookInfo>>> getBookList(@Query("page") int page);
 
     @GET(GlobalConstant.URLContact.GET_SEARCH_BOOK_LIST)
     Observable<BaseBean<List<BookInfo>>> getSearchBookList(@Query("keyword") String keyword);
@@ -43,6 +43,9 @@ public interface ApiService {
 
     @GET(GlobalConstant.URLContact.GET_VERSION)
     Observable<VersionInfo> getVersion();
+
+    @GET(GlobalConstant.URLContact.IS_MARKET_PASS)
+    Observable<BaseBean<String>> isMarketPass();
     //登录
 //    @FormUrlEncoded
 //    @POST(GlobalConstant.URLContact.USER_LOGIN_URL)

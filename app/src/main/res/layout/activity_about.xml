@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/theme"
     android:orientation="vertical"
     tools:context=".view.activity.AboutActivity">
 
@@ -11,20 +12,8 @@
         android:id="@+id/include"
         layout="@layout/toolbar" />
 
-    <com.gaos.book.view.widget.MyTextView
-        android:paddingTop="@dimen/margin"
-        android:id="@+id/about"
+    <WebView
+        android:id="@+id/webview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/about"
-        android:textSize="17sp"
-        android:layout_margin="@dimen/margin"
-        app:layout_constraintTop_toBottomOf="@+id/include" />
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/wx"
-        app:layout_constraintTop_toBottomOf="@+id/about" />
-
+        android:layout_height="match_parent"/>
 </LinearLayout>

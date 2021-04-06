@@ -3,6 +3,7 @@ package com.gaos.book.view.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -28,6 +29,9 @@ import java.util.List;
 import java.util.Spliterator;
 
 import butterknife.BindView;
+import in.srain.cube.views.ptr.PtrClassicFrameLayout;
+import in.srain.cube.views.ptr.PtrDefaultHandler2;
+import in.srain.cube.views.ptr.PtrFrameLayout;
 
 import static android.view.inputmethod.EditorInfo.*;
 
@@ -37,8 +41,11 @@ public class MainActivity extends BaseMVPActivity<MainContract.Presenter>
     RecyclerView mRecycler;
     @BindView(R.id.et_search)
     ClearEditText etSearch;
+    @BindView(R.id.ptr_classic)
+    PtrClassicFrameLayout mRefresh;
     BookListAdapter mAdapter;
     View header;
+    private int page = 1;
 
     @Override
     protected int getLayoutResId() {
@@ -57,19 +64,39 @@ public class MainActivity extends BaseMVPActivity<MainContract.Presenter>
             intent.putExtra("bookinfo", (BookInfo) data);
             startActivity(intent);
         });
+        mRefresh.setLastUpdateTimeRelateObject(getApplicationContext());
     }
 
     @Override
     protected void initClick() {
         super.initClick();
+
+        mRefresh.setPtrHandler(new PtrDefaultHandler2() {
+            @Override
+            public void onLoadMoreBegin(PtrFrameLayout frame) {
+                page++;
+                mPresenter.getRefreshOrMoreBookList(page);
+            }
+
+            @Override
+            public void onRefreshBegin(PtrFrameLayout frame) {
+                page = 1;
+                if(mAdapter!=null){
+                    mAdapter.clear();
+                }
+                mPresenter.getRefreshOrMoreBookList(page);
+            }
+        });
         etSearch.setOnEditorActionListener((v, actionId, event) -> {
             if (actionId == IME_ACTION_SEARCH) {
                 String search = etSearch.getText().toString().trim();
                 if (search.length() != 0) {
+                    mRefresh.setEnabled(false);
                     mPresenter.getSearchBookList(etSearch.getText().toString());
                 } else {
                     //当搜索框为空的时候，清除搜索条件重新搜索
-                    mPresenter.getBookList();
+                    mRefresh.setEnabled(true);
+                    mPresenter.getBookList(page);
                 }
                 return true;
             }
@@ -82,7 +109,9 @@ public class MainActivity extends BaseMVPActivity<MainContract.Presenter>
 //                    if(etSearchText.length() != 0){
                         if (textViewAfterTextChangeEvent.editable().length() == 0) {
                             //当搜索框为空的时候，清除搜索条件重新搜索
-                            mPresenter.getBookList();
+                            mAdapter.clear();
+                            mRefresh.setEnabled(true);
+                            mPresenter.getBookList(page);
                         }
 //                    }
                 });
@@ -95,8 +124,9 @@ public class MainActivity extends BaseMVPActivity<MainContract.Presenter>
 
     @Override
     protected void initData(Bundle savedInstanceState) {
+        Log.d("initData","initData");
         super.processLogic();
-        mPresenter.getBookList();
+        mPresenter.getBookList(page);
         mPresenter.getVersion();
     }
 
@@ -107,7 +137,13 @@ public class MainActivity extends BaseMVPActivity<MainContract.Presenter>
 
     @Override
     public void showBookList(List<BookInfo> bookList) {
-        mAdapter.updateRes(bookList);
+        if (mRefresh != null) {
+            mRefresh.refreshComplete();
+        }
+        if (bookList.size() == 0) {
+            mRefresh.loadAll();
+        }
+        mAdapter.addRes(bookList);
     }
 
     @Override
